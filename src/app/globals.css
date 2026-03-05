@@ -1,26 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #1F3A8A;
+  --red: #FF3131;
+  --bg: #F4F7FB;
+  --text-dark: #1E293B;
+  --white: #FFFFFF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--text-dark);
+  font-family: 'Inter', 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Blinking cursor effect */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Pulse glow animation for CTA button — navy */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(31, 58, 138, 0.4), 0 4px 24px rgba(31, 58, 138, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(31, 58, 138, 0), 0 4px 24px rgba(31, 58, 138, 0.4);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Pulse glow — WhatsApp green */
+@keyframes pulse-glow-green {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45), 0 4px 24px rgba(37, 211, 102, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0), 0 4px 24px rgba(37, 211, 102, 0.35);
+  }
+}
+
+.pulse-glow-green {
+  animation: pulse-glow-green 3s ease-in-out infinite;
+}
+
+/* Floating shape animations */
+@keyframes float1 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.04;
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+    opacity: 0.07;
+  }
+}
+
+@keyframes float2 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.03;
+  }
+
+  50% {
+    transform: translateY(15px) rotate(-4deg);
+    opacity: 0.06;
+  }
+}
+
+@keyframes float3 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.05;
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(8deg);
+    opacity: 0.08;
+  }
+}
+
+.float-1 {
+  animation: float1 8s ease-in-out infinite;
+}
+
+.float-2 {
+  animation: float2 11s ease-in-out infinite 1.5s;
+}
+
+.float-3 {
+  animation: float3 9s ease-in-out infinite 3s;
+}
+
+/* Gradient background movement */
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animated-bg {
+  background: linear-gradient(135deg, #F4F7FB 0%, #EEF4FF 40%, #F0F6FF 70%, #F4F7FB 100%);
+  background-size: 300% 300%;
+  animation: gradientShift 12s ease-in-out infinite;
 }
